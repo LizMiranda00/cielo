@@ -144,7 +144,7 @@
     </div>
   </div>
   <!-- Audio automático -->
-  <audio controls loop>
+  <audio id="audioPlayer" controls loop>
     <source src="audio/creoenti.mp3" type="audio/mpeg">
     Tu navegador no soporta el audio HTML5.
   </audio>  
@@ -160,7 +160,12 @@
     }
 
     function mostrarSorpresa() {
+      // Mostrar el modal
       document.getElementById('sorpresaModal').style.display = 'flex';
+      
+      // Reproducir el audio
+      const audioPlayer = document.getElementById('audioPlayer');
+      audioPlayer.play();
     }
   </script>
 </body>
