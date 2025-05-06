@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Para Mi Amor 💕</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      background: linear-gradient(to top right, #ff9a9e, #fad0c4);
+      overflow: hidden;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    h1 {
+      font-size: 3em;
+      color: #fff;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+      animation: fadeIn 2s ease-out;
+    }
+
+    p {
+      font-size: 1.2em;
+      color: white;
+      margin: 20px;
+      text-align: center;
+      animation: fadeIn 3s ease-out;
+    }
+
+    button {
+      background-color: #ff4081;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1em;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    /* Floating hearts */
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      transform: rotate(45deg);
+      animation: floatHearts 10s linear infinite;
+      opacity: 0.6;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+
+    @keyframes floatHearts {
+      0% {
+        transform: translateY(0) rotate(45deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100vh) rotate(45deg);
+        opacity: 0;
+      }
+    }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0,0,0,0.6);
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-content {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      text-align: center;
+      max-width: 400px;
+      animation: fadeIn 1s;
+    }
+
+    .modal-content h2 {
+      color: #e91e63;
+    }
+
+    .modal-content p {
+      color: #444;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Para el amor de mi vida ❤️</h1>
+  <p>Haz clic en el botón si quieres saber un secreto...</p>
+  <button onclick="mostrarSorpresa()">Ver Secreto 💌</button>
+
+  <!-- Modal -->
+  <div class="modal" id="sorpresaModal">
+    <div class="modal-content">
+      <h2>No es un secreto pero no me canso de decrite que...😘</h2>
+      <p>Eres la razón por la que sonrío cada día. ¡Te amo más de lo que imaginas! 💕 Gracias por tanto cielito</p>
+    </div>
+  </div>
+  <!-- Audio automático -->
+  <audio autoplay loop>
+    <source src="audio/creoenti.mp3" type="audio/mpeg">
+    Tu navegador no soporta el audio HTML5.
+  </audio>
+
+  <!-- Corazones flotando -->
+  <script>
+    for(let i = 0; i < 30; i++) {
+      let heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = (Math.random() * 5 + 5) + 's';
+      document.body.appendChild(heart);
+    }
+
+    function mostrarSorpresa() {
+      document.getElementById('sorpresaModal').style.display = 'flex';
+    }
+  </script>
+</body>
+</html>
